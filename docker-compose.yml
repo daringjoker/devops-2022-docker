@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: node-backend:v01
+    container_name: devops-2022-node
+    restart: unless-stopped
+    working_dir: /backend
+    ports:
+      - 5000:5000
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: react-frontend:v01
+    container_name: devops-2022-react
+    restart: unless-stopped
+    working_dir: /frontend
+    ports:
+      - 3000:3000
